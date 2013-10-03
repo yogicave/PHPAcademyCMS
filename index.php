@@ -30,9 +30,6 @@ $articles = $article->fetch_all();
                 </small>
             </li>
             <?php } ?>
-        </ol>
-        
-       <br />
-       <small><a href="admin">Admin</a></small>
+        </ol><small><a href="admin">Admin</a></small>
     </body>
 </html>

@@ -3,7 +3,26 @@ session_start();
 include_once('../includes/connection.php');
 
 if (isset($_SESSION['logged_in'])) {
-	// display index
+	?>
+	<html>
+		<head>
+			<Title>CMS Tutorial</Title>
+			<link rel="stylesheet" href ="../assets/style.css"/>
+		</head>
+		
+		<body>
+			<div class ="container">
+				<a href="../index.php" id="logo">CMS</a>
+				<br />
+                <ol>
+                	<li><a href="add.php">Add Article</a></li>
+                    <li><a href="delete.php">Delete Article</a></li>
+                    <li><a href="logout.php">Logout</a></li>
+                </ol>
+                
+		</body>
+	</html>
+	<?php
 } else {
 	if(isset($_POST['username'], $_POST['password'])){
 		$username = $_POST['username'];
@@ -41,12 +60,13 @@ if (isset($_SESSION['logged_in'])) {
     
     <body>
     	<div class ="container">
-        	<a href="../index.php" id="logo">CMS</a>
-            <br>
-            <br>
+        	<a href="index.php" id="logo">CMS</a>
+            <br />
+            <br />
 			<?php if (isset($error)) { ?>
             	<small style="color:#aa0000"><?php echo $error; ?> </small>
-          		<br><br>
+          		<br />
+                <br />
             <?php } ?>
             
             <form action="index.php" method ="post" autocomplete="off">
@@ -54,7 +74,10 @@ if (isset($_SESSION['logged_in'])) {
                 <input type ="password" name="password" placeholder="Password"/>
                 <input type ="submit" value="Login"/>
             </form>
-    </body>
+		<br />
+		<small><a href="..">Home</a></small>
+        
+	</body>
 </html>
 
 <?php
